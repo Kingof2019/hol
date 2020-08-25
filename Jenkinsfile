@@ -15,16 +15,21 @@ pipeline {
             }
         }
         
-        stage('deploy') {
+        stage('test') {
             steps {
-                echo 'Hello deploy'
+                sh 'mvn test'
+                    
             }
         }
        
        
-         stage('test') {
+         stage('created and push docker image') {
             steps {
-                echo 'Hello test'
+                script {
+                  checkout scm
+                    docker.withRegistry('','dockerUserID) {
+                    def customImage = docker.bulid("sani1/holi-pipeline:${env.BUILD_ID}")
+                    customImage.push()
             }
         
          }
