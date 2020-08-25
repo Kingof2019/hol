@@ -1,24 +1,30 @@
 pipeline {
     
     agent any
-
+    tools {
+        maven 'M2_HOME'
+    }
     stages {
-        stage('Hello') {
+        stage('bluid') {
             steps {
                 echo 'Hello World'
+                sh 'mvn clean'
+                sh 'mvn install'
+                sh 'mvn package'
+                
             }
         }
         
-        stage('build') {
+        stage('deploy') {
             steps {
-                echo 'Hello build'
+                echo 'Hello deploy'
             }
         }
        
        
-         stage('deploy') {
+         stage('test') {
             steps {
-                echo 'Hello deploy'
+                echo 'Hello test'
             }
         
          }
