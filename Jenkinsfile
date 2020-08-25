@@ -4,7 +4,7 @@ pipeline {
     tools {
         maven 'M2_HOME'
     }
-    stages {
+      stages {
         stage('bluid') {
             steps {
                 echo 'Hello World'
