@@ -20,23 +20,17 @@ pipeline {
                 sh 'mvn test'
                     
             }
-        }
-       
-       
+        }    
          stage('created and push docker image') {
             steps {
                 script {
                   checkout scm
-                  docker.withRegistry('', 'DockerRegistryID' ) {
-                  def customImage = docker.bulid("sani1/holi-pipeline:${env.BUILD_ID}")
-                  customImage.push()
+                    docker.withRegistry(''. 'DockerRegistryId') {
+                        def customImage = docker.bluid("sani1/holi-pipeline:${env.BLUID_ID}")
+                        customImage.push()
+                    }
+                }
             }
-        
          }
+      }
        
-    }
-    
-}  
-  }
-  }
-
