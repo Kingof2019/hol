@@ -25,12 +25,13 @@ pipeline {
             steps {
                 script {
                   checkout scm
-                    docker.withRegistry( ''. 'DockerRegistryId' ) {
+                    docker.withRegistry( '', 'DockerRegistryId' ) {
                         def customImage = docker.bluid("sani1/holi-pipeline:${env.BLUID_ID}")
                         customImage.push()
                     }
                 }
             }
          }
-      
+      }
+}
 
