@@ -27,9 +27,9 @@ pipeline {
             steps {
                 script {
                   checkout scm
-                    docker.withRegistry('','DockerRegistryID) {
-                    def customImage = docker.bulid("sani1/holi-pipeline:${env.BUILD_ID}")
-                    customImage.push()
+                  docker.withRegistry('','DockerRegistryID) {
+                  def customImage = docker.bulid("sani1/holi-pipeline:${env.BUILD_ID}")
+                  customImage.push()
             }
         
          }
@@ -37,5 +37,5 @@ pipeline {
     }
     
 }  
-        
+                                        }                                        
 
