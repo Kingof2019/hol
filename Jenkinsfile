@@ -26,7 +26,7 @@ pipeline {
                 script {
                   checkout scm
                     docker.withRegistry( '', 'DockerRegistryId' ) {
-                        def customImage = docker.bluid("sani1/holi-pipeline:${env.BLUID_ID}")
+                        def customImage = docker.bluid("sani1/holli-pipeline:${env.BLUID_ID}")
                         customImage.push()
                     }
                 }
